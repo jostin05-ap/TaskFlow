@@ -55,3 +55,14 @@ DELETE /tasks/:id eliminar tarea
 
 La API concreta se elegirá después. Estas rutas son requisitos, no
 direcciones de un servidor ya conectado.
+
+## API de tareas
+
+TaskFlow consulta las tareas de JSONPlaceholder usando Dio.
+
+- **URL:** `https://jsonplaceholder.typicode.com/todos?userId=2`
+- **Parámetro elegido:** `userId=2`. La aplicación consulta las tareas asociadas a ese usuario.
+- **Campos recibidos:** `userId`, `id`, `title` y `completed`.
+- **Mapeo:** la API entrega `completed`; TaskFlow lo convierte en `isCompleted`.
+- **Valores predeterminados:** la API no envía `description` ni `priority`. TaskFlow completa `description` con `Sin descripción (API)` y `priority` con `Sin prioridad (API)`.
+- **Estado:** marcar una tarea como completada todavía solo cambia el estado local de la aplicación; no actualiza la API.
