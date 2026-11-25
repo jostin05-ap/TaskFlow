@@ -66,3 +66,9 @@ TaskFlow consulta las tareas de JSONPlaceholder usando Dio.
 - **Mapeo:** la API entrega `completed`; TaskFlow lo convierte en `isCompleted`.
 - **Valores predeterminados:** la API no envía `description` ni `priority`. TaskFlow completa `description` con `Sin descripción (API)` y `priority` con `Sin prioridad (API)`.
 - **Estado:** marcar una tarea como completada todavía solo cambia el estado local de la aplicación; no actualiza la API.
+## Pruebas de estados asíncronos
+
+- **Carga:** al iniciar o actualizar la lista, aparece el indicador mientras se consulta la API.
+- **Éxito:** con internet y `userId = 2`, la API devuelve tareas y se muestran en el listado.
+- **Lista vacía:** cambié temporalmente `userId` a `9999`. La respuesta fue una lista vacía y apareció “Todavía no hay tareas para mostrar”. Después restauré `userId = 2`.
+- **Error y reintento:** desconecté temporalmente internet y pulsé Actualizar. Apareció “No se pudieron cargar las tareas” y el botón “Reintentar”. Volví a conectar internet y pulsé “Reintentar”; las tareas regresaron sin reiniciar la aplicación.
