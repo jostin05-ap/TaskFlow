@@ -4,9 +4,11 @@ import 'package:go_router/go_router.dart';
 import '../core/app_theme.dart';
 import '../features/tasks/presentation/task_detail_screen.dart';
 import '../features/tasks/presentation/task_list_screen.dart';
+import '../features/tasks/presentation/task_form_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
+    GoRoute(path: '/new', builder: (context, state) => const TaskFormScreen()),
     GoRoute(path: '/', builder: (context, state) => const TaskListScreen()),
     GoRoute(
       path: '/task/:id',
